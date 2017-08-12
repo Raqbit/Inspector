@@ -10,7 +10,6 @@ import org.spongepowered.api.Sponge;
 import org.spongepowered.api.block.BlockSnapshot;
 import org.spongepowered.api.data.DataContainer;
 import org.spongepowered.api.data.DataQuery;
-import org.spongepowered.api.data.MemoryDataContainer;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.service.sql.SqlService;
 import org.spongepowered.api.world.Location;
@@ -320,7 +319,7 @@ public class DatabaseManager
 	private BlockSnapshot deserializeBlockSnapshot(String json)
 	{
 		Map<Object, Object> map = gson.fromJson(json, Map.class);
-		DataContainer container = new MemoryDataContainer();
+		DataContainer container = DataContainer.createNew();
 
 		for (Map.Entry<Object, Object> entry : map.entrySet())
 		{

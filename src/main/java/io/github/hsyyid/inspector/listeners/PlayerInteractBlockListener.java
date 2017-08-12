@@ -88,7 +88,7 @@ public class PlayerInteractBlockListener
 	public void onPlayerLeftClickBlock(InteractBlockEvent.Primary event, @Root Player player)
 	{
 		if (player.hasPermission("inspector.region.use") && player.getItemInHand(HandTypes.MAIN_HAND).isPresent() 
-			&& player.getItemInHand(HandTypes.MAIN_HAND).get().getItem().getName()
+			&& player.getItemInHand(HandTypes.MAIN_HAND).get().getType().getName()
 				.equals((String) Utils.getConfigValue("inspector.select.tool")))
 		{
 			Location<World> pointA = event.getTargetBlock().getLocation().get();
@@ -102,7 +102,7 @@ public class PlayerInteractBlockListener
 	public void onPlayerRightClickBlock(InteractBlockEvent.Secondary event, @Root Player player)
 	{
 		if (player.hasPermission("inspector.region.use") && player.getItemInHand(HandTypes.MAIN_HAND).isPresent() 
-			&& player.getItemInHand(HandTypes.MAIN_HAND).get().getItem().getName()
+			&& player.getItemInHand(HandTypes.MAIN_HAND).get().getType().getName()
 				.equals((String) Utils.getConfigValue("inspector.select.tool")))
 		{
 			Location<World> pointB = event.getTargetBlock().getLocation().get();
